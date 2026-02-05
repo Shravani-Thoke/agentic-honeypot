@@ -8,7 +8,6 @@ function fallbackPersonaReply() {
 }
 
 export async function generatePersonaReply(history, lastMessage) {
-  // 🔒 Only early conversation uses LLM
   if (history.length > 6) {
     return fallbackPersonaReply();
   }
