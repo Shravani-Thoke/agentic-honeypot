@@ -8,6 +8,8 @@ import { extractIntelligence } from "../services/intelligenceExtractor.js";
 const router = express.Router();
 
 router.post("/", authenticate, async (req, res) => {
+
+    try{
   //   const { message, conversation_id } = req.body;
 
   const conversation_id = req.body?.conversation_id || "default";
@@ -79,6 +81,29 @@ router.post("/", authenticate, async (req, res) => {
   };
 
   res.json(finalResponse);
+}catch(error){
+     console.error("Honeypot fatal error:", err);
+
+    return res.json({
+      status: "success",
+      is_scam: false,
+      confidence_score: 0,
+      scam_category: "None",
+      threat_level: "Low",
+      indicators: [],
+      reasoning: "Internal error handled safely.",
+      persona_reply: null,
+      intelligence: {
+        phone_numbers: [],
+        upi_ids: [],
+        links: [],
+        bank_accounts: [],
+        ifsc_codes: [],
+        crypto_addresses: []
+      },
+      scam_context: false
+    });
+}
 });
 
 export default router;
