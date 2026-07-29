@@ -2,6 +2,9 @@
 
 An AI-powered **conversation-aware honeypot** that detects scam messages, engages scammers using a believable persona, and extracts actionable intelligence such as phone numbers, UPI IDs, phishing links, bank account numbers, IFSC codes, and crypto wallet addresses.
 
+## 🚀 Live Demo
+https://agentic-honeypot-hd9h.onrender.com
+
 ---
 
 ## 🚀 Features
